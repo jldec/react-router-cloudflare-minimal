@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
-import { getBindings } from "~/bindings";
+import { env } from "cloudflare:workers";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,11 +10,10 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ context }: Route.LoaderArgs) {
-  let { MY_KV } = getBindings(context);
-  let value = await MY_KV.get("key");
+  let value = await env.MY_KV.get("key");
 
   if (!value) {
-    await MY_KV.put("key", "value");
+    await env.MY_KV.put("key", "booger");
     value = "fallback";
   }
 

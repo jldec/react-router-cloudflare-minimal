@@ -1,4 +1,8 @@
 # Minimal React Router Cloudflare Workers Template
+from https://github.com/sergiodxa/react-router-cloudflare-minimal
+
+- replaced bun with pnpm
+- disabled lockfile
 
 This is a minimal template for building React applications with React Router and Cloudflare Workers. It includes server-side rendering, hot module replacement, and TypeScript by default.
 
@@ -9,7 +13,7 @@ This is a minimal template for building React applications with React Router and
 Install the dependencies:
 
 ```bash
-bun install
+pnpm install
 ```
 
 ### Development
@@ -17,7 +21,7 @@ bun install
 Start the development server with HMR:
 
 ```bash
-bun run dev
+pnpm dev
 ```
 
 Your application will be available at `http://localhost:3000`.
@@ -27,7 +31,7 @@ Your application will be available at `http://localhost:3000`.
 Create a production build:
 
 ```bash
-bun run build
+pnpm build
 ```
 
 ## Deployment
@@ -35,7 +39,7 @@ bun run build
 This template can only be deployed to Cloudflare Workers.
 
 ```bash
-bun run deploy
+pnpm ship
 ```
 
 This will init the deploy script of wrangler and guide you to deploy the application.

@@ -21,12 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: bun install --frozen-lockfile
-      - run: bun run build
+      - run: pnpm install
+      - run: pnpm build
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
